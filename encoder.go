@@ -6,6 +6,10 @@ import (
 	"strconv"
 )
 
+type Encodable interface {
+	Encode() ([]byte, error)
+}
+
 func EncodeInt(v int) ([]byte, error) {
 	ret := make([]byte, 0)
 	ret = append(ret, byte('i'))

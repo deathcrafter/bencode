@@ -145,11 +145,11 @@ func Decode(data []byte) (Belement, error) {
 	return ret, err
 }
 
-func DecodeReader(source Source) (Belement, error) {
+func DecodeReader(reader io.Reader) (Belement, error) {
 	data := make([]byte, 0)
 	for {
 		slice := make([]byte, 1024)
-		n, err := source.Read(data)
+		n, err := reader.Read(data)
 		if err != nil {
 			if err == io.EOF {
 				break
