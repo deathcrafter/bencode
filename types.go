@@ -14,11 +14,6 @@ const (
 	TypeDict    BType = 3
 )
 
-type Belement struct {
-	Type  BType
-	Value interface{}
-}
-
 type BencodeError struct {
 	msg  string
 	data interface{}

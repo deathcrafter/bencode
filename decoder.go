@@ -8,42 +8,6 @@ import (
 	"strings"
 )
 
-func getErrorByType(t BType, v Belement) error {
-	if v.Type != t {
-		return BencodeError{msg: fmt.Sprintf("Value has type %d, expected %d", v.Type, t)}
-	}
-	return nil
-}
-
-func (v Belement) GetInt() (int, error) {
-	if err := getErrorByType(TypeInt, v); err != nil {
-		return 0, err
-	} else {
-		return v.Value.(int), nil
-	}
-}
-func (v Belement) GetString() (string, error) {
-	if err := getErrorByType(TypeString, v); err != nil {
-		return "", err
-	} else {
-		return v.Value.(string), nil
-	}
-}
-func (v Belement) GetList() ([]Belement, error) {
-	if err := getErrorByType(TypeList, v); err != nil {
-		return nil, err
-	} else {
-		return v.Value.([]Belement), nil
-	}
-}
-func (v Belement) GetDict() (map[string]Belement, error) {
-	if err := getErrorByType(TypeDict, v); err != nil {
-		return nil, err
-	} else {
-		return v.Value.(map[string]Belement), nil
-	}
-}
-
 func safeSubbyte(b []byte, start int, end int) []byte {
 	if start < 0 {
 		start = 0
