@@ -1,8 +1,9 @@
 package bencode_test
 
 import (
-	"bencode"
 	"testing"
+
+	"github.com/deathcrafter/bencode"
 )
 
 func TestDecoderInt(t *testing.T) {
