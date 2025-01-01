@@ -4,16 +4,6 @@ import (
 	"fmt"
 )
 
-type BType int
-
-const (
-	TypeInvalid BType = -1
-	TypeInt     BType = 0
-	TypeString  BType = 1
-	TypeList    BType = 2
-	TypeDict    BType = 3
-)
-
 type BencodeError struct {
 	msg  string
 	data interface{}

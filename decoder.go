@@ -154,7 +154,7 @@ func DecodeReader(source Source) (Belement, error) {
 			if err == io.EOF {
 				break
 			}
-			return Belement{}, err
+			return InvalidBelement, err
 		}
 		data = append(data, slice[:n]...)
 	}

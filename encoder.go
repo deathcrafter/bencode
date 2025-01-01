@@ -181,6 +181,8 @@ func (v Belement) Encode() ([]byte, error) {
 			x[k] = v
 		}
 		return EncodeDict(x)
+	case TypeInvalid:
+		return nil, BencodeError{msg: "Belement is invalid"}
 	default:
 		return nil, BencodeError{
 			msg: fmt.Sprintf(
