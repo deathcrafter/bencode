@@ -4,6 +4,23 @@ import "fmt"
 
 type BelementType int
 
+func (t BelementType) String() string {
+	switch t {
+	case TypeInt:
+		return "int"
+	case TypeString:
+		return "string"
+	case TypeList:
+		return "list"
+	case TypeDict:
+		return "dict"
+	case TypeInvalid:
+		return "invalid"
+	default:
+		return "unknown"
+	}
+}
+
 const (
 	TypeInvalid BelementType = iota
 	TypeInt
